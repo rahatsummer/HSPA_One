@@ -22,6 +22,11 @@
   height: 250px
 }
 
+
+.card {
+  min-height: 400px;
+}
+
 .member-icons{
   position: absolute;
   bottom: -10%;
