@@ -205,7 +205,7 @@ export class AddPropertyComponent implements OnInit {
       this.alertify.success('Congrats, your property listed successfully on our website');
       console.log(this.addPropertyForm);
 
-      if(this.SellRent.value === '2') {
+      if (this.SellRent.value === '2') {
         this.router.navigate(['/rent-property']);
       } else {
         this.router.navigate(['/']);
@@ -218,6 +218,7 @@ export class AddPropertyComponent implements OnInit {
 }
 
 mapProperty(): void {
+  this.property.Id = this.housingService.newPropID();
   this.property.SellRent = +this.SellRent.value; // refer + convert value to number
   this.property.BHK = this.BHK.value;
   this.property.PType = this.PType.value;
