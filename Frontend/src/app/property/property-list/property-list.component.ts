@@ -23,14 +23,15 @@ export class PropertyListComponent implements OnInit {
     if (this.route.snapshot.url.toString()){
       this.SellRent = 2; // we are on rent property url else we are on buy url
     }
-    this.housingService.getAllProperties(this.SellRent).subscribe (
-         data => {
-        this.properties = data;
-        console.log(data);
-      }, error => {
-        console.log(error);
-      }
-    );
+    this.housingService.getAllProperties(this.SellRent).subscribe(
+      data => {
+      this.properties = data;
+      console.log(data);
+    }, error => {
+      console.log('httperror:');
+      console.log(error);
+    }
+  );
 
     // this.http.get('data/properties.json').subscribe (
     //   data => {
