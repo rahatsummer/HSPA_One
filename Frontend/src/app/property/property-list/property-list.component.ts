@@ -3,6 +3,7 @@ import { HousingService } from 'src/app/services/housing.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { IProperty } from 'src/app/model/iproperty';
+import { IPropertyBase } from 'src/app/model/ipropertybase';
 
 
 @Component({
@@ -14,7 +15,13 @@ export class PropertyListComponent implements OnInit {
 
   SellRent = 1;
 
-  properties: IProperty[];
+  properties: IPropertyBase[];
+
+  Today = new Date();
+  City = '';
+  SearchCity = '';
+  SortbyParam = '';
+  SortDirection= 'asc';
 
 
   constructor(private route: ActivatedRoute, private housingService: HousingService) { }
@@ -33,6 +40,8 @@ export class PropertyListComponent implements OnInit {
     }
   );
 
+
+
     // this.http.get('data/properties.json').subscribe (
     //   data => {
     //     this.properties =data;
@@ -40,5 +49,26 @@ export class PropertyListComponent implements OnInit {
     //   }
     // );
   }
+
+  onCityFilter(){
+    this.SearchCity = this.City;
+
+  }
+
+  onCityFilterClear(){
+    this.SearchCity = '';
+    this.City = '';
+  }
+
+  onSortDirection(){
+    if(this.SortDirection === 'desc'){
+      this.SortDirection = 'asc';
+    }
+    else {
+      this.SortDirection = 'desc';
+    }
+
+  }
+
 
 }
